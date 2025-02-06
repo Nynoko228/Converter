@@ -1,0 +1,63 @@
+Давление
+Скорость
+Ускорение
+Плотность
+Температура
+Количество вещества
+Расстояние
+Время
+Угол
+Энергия
+Крутящий момент
+Область
+Поток
+Объем
+Компьютер
+Сила
+Свет
+Объем - Сухой
+Концентрация
+Масса
+Мощность
+
+PRESSURE
+Density
+Distance
+Energy
+Flow
+Force
+Light
+Mass Power
+Pressure
+Speed
+Temperature
+Time Torque
+Volume
+Volume - Dry
+Acceleration
+Amt. of Substance
+Angle Area
+Computer
+Concentration
+
+Density, Distance, Energy, Flow, Force, Light, Mass Power, Pressure, Speed, Temperature, Time Torque, Volume, Volume - Dry, Acceleration, Amt. of Substance, Angle Area, Computer, Concentration
+
+SPEED
+C
+centimeter/hour
+centimeter/minute
+centimeter/second
+foot/hour
+foot/minute
+foot/second
+kilometer/hour
+kilometer/minute
+kilometer/second
+knot
+mach
+meter/hour
+meter/minute
+meter/second
+mile/hour
+mile/minute
+mile/second
