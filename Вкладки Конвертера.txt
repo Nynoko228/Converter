@@ -131,3 +131,44 @@ free fall (g)
 meter/secl (m/sl)
 mile/hour second (mi/(h*s))
 millimeter/secl (mm/sl)
+
+AMOUNT
+mol
+kmol
+millimol
+micromol
+
+ANGLE
+degree (*)
+grad (g)
+minute (")
+radian (rad)
+revolution (r)
+right angle
+second (")
+
+AREA
+acre
+centimeters
+footloose
+hectare
+inch
+kilometers (kml)
+meter
+milel
+millimeters
+
+COMPUTER
+bit
+byte
+exabyte
+gigabyte
+kilobit
+kilobyte
+megabit
+megabyte
+nibble
+petabyte
+terabyte
+yottabyte
+zettabyte

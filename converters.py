@@ -191,52 +191,28 @@ def acceleration_converter(value, from_unit, to_unit):
 # Amt. of Substance (Amount of Substance)
 def amount_converter(value, from_unit, to_unit):
     """Конвертер количества вещества."""
-    units = {
-        "mol": 1,
-        "kmol": 1000,
-        "millimol": 0.001,
-    }
+    units = AllUnits.amount_unit
     value_in_mol = value * units[from_unit]
     return value_in_mol / units[to_unit]
 
 # Angle
 def angle_converter(value, from_unit, to_unit):
-  """Конвертер углов."""
-  units = {
-      "rad": 1,
-      "deg": math.pi / 180,
-      "grad": math.pi / 200, # Gradian or gon
-  }
-  value_in_radians = value * units[from_unit]
-  return value_in_radians / units[to_unit]
+    """Конвертер углов."""
+    units = AllUnits.angle_unit
+    value_in_radians = value * units[from_unit]
+    return value_in_radians / units[to_unit]
 
 # Area
 def area_converter(value, from_unit, to_unit):
     """Конвертер площади."""
-    units = {
-        "m2": 1,
-        "km2": 1000000,
-        "cm2": 0.0001,
-        "mm2": 0.000001,
-        "ft2": 0.092903,
-        "in2": 0.00064516,
-        "ha": 10000, # Hectare
-        "acre": 4046.86
-    }
+    units = AllUnits.area_unit
     value_in_m2 = value * units[from_unit]
     return value_in_m2 / units[to_unit]
 
 # Computer (Data Storage)
 def data_converter(value, from_unit, to_unit):
     """Конвертер объема данных."""
-    units = {
-        "bit": 1/8, # 1 byte = 8 bits
-        "byte": 1,
-        "kB": 1024,
-        "MB": 1024**2,
-        "GB": 1024**3,
-        "TB": 1024**4,
-    }
+    units = AllUnits.comuter_unit
     value_in_bytes = value * units[from_unit]
     return value_in_bytes / units[to_unit]
 
@@ -372,5 +348,5 @@ def excel_creater(value, from_unit, to_units, type, conversion_function_name):
 if __name__ == "__main__":
     # Устанавливаем defaults для корректной работы
     # pressure_converter.__defaults__ = (list(pressure_converter.__code__.co_consts[1].keys()),)
-    unit = AllUnits.acceleration_units
-    test_converter(unit, "acceleration", "acceleration_converter")
+    unit = AllUnits.comuter_unit
+    test_converter(unit, "data", "data_converter")
