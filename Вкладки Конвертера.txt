@@ -61,3 +61,73 @@ meter/second
 mile/hour
 mile/minute
 mile/second
+
+TIME
+century
+day
+decade
+fortnight
+hour
+leap-year
+millennium
+millisecond
+minute (')
+month (30 day)
+nanosecond
+second (")
+week
+year
+
+TORQUE
+dyne centimeter (dyn cm)
+gram-force centimeter (gf-cm)
+kilogram-force meter (kgf)
+kilonewton meter [kN-m)
+kilopond meter (kp:m)
+meganewton meter (MN:m)
+micronewton meter [uN:m)
+millinewton meter (mN m)
+newton meter (N:m)
+ounce-force foot (ozf ft)
+ounce-force inch (ozf in)
+pound-force foot (Lbf-ft)
+pound-force inch (Lbf in)
+
+VOLUME
+CC
+cubic centimeter
+cubic foot
+cubic inch
+cubic meter
+cubic yard
+cup
+dram
+drop
+gallon
+gallon (UK)
+liter
+milliliter
+minim (US]
+ounce (oz)
+ounce (oz) (UK)
+pint (pt)
+pint (pt) (UK)
+quart
+tablespoon
+teaspoon
+
+VOLUME-DRY
+barrel
+bushel
+liter
+peck
+pint (pt)
+quart
+
+ACCELERATION
+centimeter/secl (cm/sl)
+foot/secl (ft/sl)
+free fall (g)
+meter/secl (m/sl)
+mile/hour second (mi/(h*s))
+millimeter/secl (mm/sl)
