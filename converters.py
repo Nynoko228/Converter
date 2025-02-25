@@ -24,12 +24,14 @@ def distance_converter(value, from_unit, to_unit):
     return value_in_meters / units[to_unit]
 
 
+
 # Energy
 def energy_converter(value, from_unit, to_unit):
     """Конвертер энергии."""
     units = AllUnits.energy_units
     value_in_joules = value * units[from_unit]
     return value_in_joules / units[to_unit]
+
 
 # Flow (Volume Flow Rate)
 def flow_converter(value, from_unit, to_unit):
@@ -44,6 +46,7 @@ def force_converter(value, from_unit, to_unit):
     units = AllUnits.force_units
     value_in_newtons = value * units[from_unit]
     return value_in_newtons / units[to_unit]
+
 
 # Light (Illuminance)
 def illuminance_converter(value, from_unit, to_unit):
@@ -83,141 +86,90 @@ def speed_converter(value, from_unit, to_unit):
 # Temperature
 def temperature_converter(value, from_unit, to_unit):
     """Конвертер температуры."""
-    if from_unit == to_unit:
-        return value
+    units = {
+        "C": lambda x: x,
+        "F": lambda x: (x - 32) * 5 / 9,
+        "K": lambda x: x - 273.15,
+        "R": lambda x: (x - 491.67) * 5 / 9,
+    }
 
-    if from_unit == "C":
-        celsius = value
-    elif from_unit == "F":
-        celsius = (value - 32) * 5/9
-    elif from_unit == "K":
-        celsius = value - 273.15
-    else:
-        raise ValueError("Неизвестная исходная единица измерения температуры.")
+    if from_unit not in units or to_unit not in units:
+        raise ValueError("Неизвестная единица измерения температуры.")
 
-    if to_unit == "C":
-        return celsius
-    elif to_unit == "F":
-        return (celsius * 9/5) + 32
-    elif to_unit == "K":
-        return celsius + 273.15
-    else:
-        raise ValueError("Неизвестная конечная единица измерения температуры.")
+    celsius = units[from_unit](value)
+
+    conversions = {
+        "C": lambda x: x,
+        "F": lambda x: (x * 9 / 5) + 32,
+        "K": lambda x: x + 273.15,
+        "R": lambda x: (x + 273.15) * 9 / 5,
+    }
+
+    return conversions[to_unit](celsius)
 
 
 # Time
 def time_converter(value, from_unit, to_unit):
     """Конвертер времени."""
-    units = {
-        "s": 1,
-        "min": 60,
-        "h": 3600,
-        "day": 86400,
-        "week": 604800,
-        "month": 2592000,  # Approximate (30 days)
-        "year": 31536000, # Approximate (365 days)
-    }
+    units = AllUnits.time_units
+    # Конвертация
     value_in_seconds = value * units[from_unit]
     return value_in_seconds / units[to_unit]
 
 # Torque
 def torque_converter(value, from_unit, to_unit):
     """Конвертер крутящего момента."""
-    units = {
-        "N.m": 1,
-        "kN.m": 1000,
-        "lbf.ft": 1.35582,
-        "lbf.in": 0.112985,
-    }
+    units = AllUnits.torque_units
     value_in_Nm = value * units[from_unit]
     return value_in_Nm / units[to_unit]
 
 # Volume
 def volume_converter(value, from_unit, to_unit):
     """Конвертер объема."""
-    units = {
-        "m3": 1,
-        "L": 0.001,
-        "mL": 0.000001,
-        "gal": 0.00378541,  # US Gallon
-        "ft3": 0.0283168,
-        "in3": 0.0000163871,
-    }
+    units = AllUnits.volume_units
     value_in_m3 = value * units[from_unit]
     return value_in_m3 / units[to_unit]
 
 # Volume - Dry (US)
 def dry_volume_converter(value, from_unit, to_unit):
     """Конвертер сухого объема (US)."""
-    units = {
-        "bushel": 0.0352391,  # US bushel
-        "quart": 0.00110122, # US dry quart
-        "pint": 0.00055061,  # US dry pint
-    }
+    units = AllUnits.dry_volume_units
+
     value_in_bushels = value * units[from_unit]
     return value_in_bushels / units[to_unit]
 
 # Acceleration
 def acceleration_converter(value, from_unit, to_unit):
     """Конвертер ускорения."""
-    units = {
-        "m/s2": 1,
-        "cm/s2": 0.01,
-        "ft/s2": 0.3048,
-        "g": 9.80665, # Standard gravity
-    }
+    units = AllUnits.acceleration_units
     value_in_ms2 = value * units[from_unit]
     return value_in_ms2 / units[to_unit]
 
 # Amt. of Substance (Amount of Substance)
 def amount_converter(value, from_unit, to_unit):
     """Конвертер количества вещества."""
-    units = {
-        "mol": 1,
-        "kmol": 1000,
-        "millimol": 0.001,
-    }
+    units = AllUnits.amount_unit
     value_in_mol = value * units[from_unit]
     return value_in_mol / units[to_unit]
 
 # Angle
 def angle_converter(value, from_unit, to_unit):
-  """Конвертер углов."""
-  units = {
-      "rad": 1,
-      "deg": math.pi / 180,
-      "grad": math.pi / 200, # Gradian or gon
-  }
-  value_in_radians = value * units[from_unit]
-  return value_in_radians / units[to_unit]
+    """Конвертер углов."""
+    units = AllUnits.angle_unit
+    value_in_radians = value * units[from_unit]
+    return value_in_radians / units[to_unit]
 
 # Area
 def area_converter(value, from_unit, to_unit):
     """Конвертер площади."""
-    units = {
-        "m2": 1,
-        "km2": 1000000,
-        "cm2": 0.0001,
-        "mm2": 0.000001,
-        "ft2": 0.092903,
-        "in2": 0.00064516,
-        "ha": 10000, # Hectare
-        "acre": 4046.86
-    }
+    units = AllUnits.area_unit
     value_in_m2 = value * units[from_unit]
     return value_in_m2 / units[to_unit]
 
 # Computer (Data Storage)
 def data_converter(value, from_unit, to_unit):
     """Конвертер объема данных."""
-    units = {
-        "bit": 1/8, # 1 byte = 8 bits
-        "byte": 1,
-        "kB": 1024,
-        "MB": 1024**2,
-        "GB": 1024**3,
-        "TB": 1024**4,
-    }
+    units = AllUnits.comuter_unit
     value_in_bytes = value * units[from_unit]
     return value_in_bytes / units[to_unit]
 
@@ -227,6 +179,7 @@ def concentration_converter(value, from_unit, to_unit):
   units = AllUnits.concentration_units
   value_in_kmolm3 = value * units[from_unit]
   return value_in_kmolm3 / units[to_unit]
+
 
 def test_converter(units, type, function):
     """Тестирует pressure_converter, преобразуя во все единицы измерения."""
@@ -347,5 +300,5 @@ def excel_creater(value, from_unit, to_units, type, conversion_function_name):
 if __name__ == "__main__":
     # Устанавливаем defaults для корректной работы
     # pressure_converter.__defaults__ = (list(pressure_converter.__code__.co_consts[1].keys()),)
-    unit = AllUnits.power_units
-    test_converter(unit, "power", "power_converter")
+    unit = AllUnits.comuter_unit
+    test_converter(unit, "data", "data_converter")
