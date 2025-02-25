@@ -62,113 +62,161 @@ mile/hour
 mile/minute
 mile/second
 
-TIME
-century
-day
-decade
-fortnight
-hour
-leap-year
-millennium
-millisecond
-minute (')
-month (30 day)
-nanosecond
-second (")
-week
-year
+"""--------------------------------------СНИЗУ НОВОЕ-----------------------------------------------"""
+CONCENTRATION
+kilomole/metric (kmol/mi] *
+micromole/centimeters (umol/cmi)
+micromole/decimeter (umol/dmi) *
+micromole/liter
+(umol/L) *
+millimole/centimeters (mmol/cmi] *
+millimole/decimeter (mmol/dmi) *
+millimoles/liter (mmol/L) *
+millimole/meteri (mmol/mi] *
+millimole/milliliter (mmol/mL) *
+mole/decimeter (mol/dmi) *
+mole/liter [mol/L) *
+mole/meteri (mol/mi) *
+one elementary entity/meter *
 
-TORQUE
-dyne centimeter (dyn cm)
-gram-force centimeter (gf-cm)
-kilogram-force meter (kgf)
-kilonewton meter [kN-m)
-kilopond meter (kp:m)
-meganewton meter (MN:m)
-micronewton meter [uN:m)
-millinewton meter (mN m)
-newton meter (N:m)
-ounce-force foot (ozf ft)
-ounce-force inch (ozf in)
-pound-force foot (Lbf-ft)
-pound-force inch (Lbf in)
+DENSITY
+gram/centimeter
+gram/meter
+kilogram/meter
+milligram/meter
+ounce/gallon
+pound/foot
+pound/inch
+ton/yardi
 
-VOLUME
-CC
-cubic centimeter
-cubic foot
-cubic inch
-cubic meter
-cubic yard
-cup
-dram
-drop
-gallon
-gallon (UK)
-liter
-milliliter
-minim (US]
-ounce (oz)
-ounce (oz) (UK)
-pint (pt)
-pint (pt) (UK)
-quart
-tablespoon
-teaspoon
+DISTANCE
+centimeter (cm)
+dekameter (dm)
+foot (ft)
+furlong
+hectometer (hm)
+inch (in)
+kilometer (km)
+lightyear
+meter (m)
+micrometer (um)
+mil (mil)
+mile (mi)
+millimeter (mm)
+nanometer (nm)
+nautical mile (M)
+parsec (pc)
+yard (yd)
 
-VOLUME-DRY
-barrel
-bushel
-liter
-peck
-pint (pt)
-quart
+ENERGY
+attojoule
+BTU
+calorie
+dyne-centimeter
+electron volt
+erg
+gigajoule
+gigawatt-hour
+gram force-centimeter
+horsepower-hour
+joule
+kilocalorie
+kiloelectron volt
+kilojoule
+kilowatt-hour
+megaelectron volt
+megajoule
+megawatt-hour
+microjoule
+millijoule
+nanojoule
+newton-meter
+ounce force-inch
+pound force-foot
+pound force-inch
+poundal-foot
+therm
+watt-hour
+watt-second
 
-ACCELERATION
-centimeter/secl (cm/sl)
-foot/secl (ft/sl)
-free fall (g)
-meter/secl (m/sl)
-mile/hour second (mi/(h*s))
-millimeter/secl (mm/sl)
+FLOW
+centimeteri/hour
+centimeteri/minute
+centimeteri/second
+footi/hour
+footi/minute
+footi/second
+gallon (UK)/day
+gallon (UK)/hour
+gallon (UK)/minute
+gallon (UK)/second
+gallon/day
+gallon/hour
+gallon/minute
+gallon/second
+liter/day
+liter/hour
+liter/minute
+liter/second
+meteri/day
+meteri/hour
+meteri/minute
+meteri/second
+milliliter/hour
+milliliter/minute
+milliliter/second
+ounce (UK)/hour
+ounce (UK)/minute
+ounce (UK)/second
+ounce/hour
+ounce/minute
+ounce/second
+yardi/hour
+yardi/minute
+yardi/second
 
-AMOUNT
-mol
-kmol
-millimol
-micromol
+FORCE
+dyne
+gram force
+kilogram force
+kilonewton
+millinewton
+newton
+ounce-force (ozf)
+pound-force (Lbf)
 
-ANGLE
-degree (*)
-grad (g)
-minute (")
-radian (rad)
-revolution (r)
-right angle
-second (")
+LIGHT
+flame
+foot-candles
+lux
+meter-candles
 
-AREA
-acre
-centimeters
-footloose
-hectare
-inch
-kilometers (kml)
-meter
-milel
-millimeters
+MASS
+carat
+grain (gr)
+gram (g)
+kilogram (kg)
+megagram (Mg)
+microgram (ug)
+milligram (mg)
+ounce (avdp) (oz)
+ounce (troy) (oz)
+pennyweight
+pound (advp) (Ib)
+pound (troy)
+stone
+ton (long)
+ton (short) (tn)
+tonne (metric ton) (t)
 
-COMPUTER
-bit
-byte
-exabyte
-gigabyte
-kilobit
-kilobyte
-megabit
-megabyte
-nibble
-petabyte
-terabyte
-yottabyte
-zettabyte
+POWER
+BTU/hour
+BTU/minute
+BTU/second
+calorie/second
+horsepower
+kilowatt
+megawatt
+pound-feet/minute
+pound-feet/second
+watt
