@@ -2,7 +2,7 @@
 import math
 
 from openpyxl.styles import NamedStyle, Font, Alignment, PatternFill, Border, Side
-from AllUnits import AllUnits
+from AllUnitsDB import AllUnits, main
 
 # Density
 def density_converter(value, from_unit, to_unit):
@@ -214,7 +214,7 @@ def test_converter(units, type, function):
 
 
 
-def excel_creater(value, from_unit, to_units, type, conversion_function_name):
+def excel_creater(value, from_unit, to_units, type, conversion_function):
     from openpyxl import Workbook
 
     """
@@ -231,16 +231,10 @@ def excel_creater(value, from_unit, to_units, type, conversion_function_name):
     # Заголовки таблицы
     ws.append(["Значение", "Начальная величина", "Значение", "Сконвертированная величина"])
 
-    # Получаем функцию конвертации по её имени
-    try:
-        conversion_function = globals()[conversion_function_name]
-    except KeyError:
-        print(f"Ошибка: Функция конвертации '{conversion_function_name}' не найдена.")
-        return  # Завершаем функцию, если функция не найдена
-
     # Конвертируем значение в каждую из указанных единиц измерения
     for to_unit in to_units:
         try:
+            print(f"value, from_unit, to_unit: {value, from_unit, to_unit}")
             converted_value = conversion_function(value, from_unit, to_unit)
             ws.append([value, from_unit, converted_value, to_unit])
             print(f"{value} {from_unit} = {converted_value} {to_unit}")
@@ -298,7 +292,6 @@ def excel_creater(value, from_unit, to_units, type, conversion_function_name):
 # excel_creater(value, from_unit, to_units)
 
 if __name__ == "__main__":
-    # Устанавливаем defaults для корректной работы
-    # pressure_converter.__defaults__ = (list(pressure_converter.__code__.co_consts[1].keys()),)
-    unit = AllUnits.comuter_unit
-    test_converter(unit, "data", "data_converter")
+    AllUnits = main()
+    unit = AllUnits.speed_units
+    test_converter(unit, "speed1", speed_converter)
