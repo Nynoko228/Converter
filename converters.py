@@ -1,13 +1,14 @@
 # Это не совсем старый конвертер. Тут посто сокращённые названия единиц, которые отличны от названий в программе
 import math
+import os
 
 from openpyxl.styles import NamedStyle, Font, Alignment, PatternFill, Border, Side
 from AllUnitsDB import AllUnits, main
 
 # Density
-def density_converter(value, from_unit, to_unit):
+def density_converter(value, from_unit, to_unit, units):
     """Конвертер плотности."""
-    units = AllUnits.density_units
+    # units = AllUnits.density_units
     # Проверка, поддерживаются ли единицы измерения
     if from_unit not in units or to_unit not in units:
         raise ValueError("Неизвестная единица измерения плотности.")
@@ -17,69 +18,71 @@ def density_converter(value, from_unit, to_unit):
     return value_in_kgm3 / units[to_unit]
 
 # Distance
-def distance_converter(value, from_unit, to_unit):
+def distance_converter(value, from_unit, to_unit, units):
     """Конвертер расстояния."""
-    units = AllUnits.distance_units
+    print("Зашли в функцию дистансе")
+    # units = AllUnits.distance_units
+    print(f"UNITS{units}")
     value_in_meters = value * units[from_unit]
     return value_in_meters / units[to_unit]
 
 
 
 # Energy
-def energy_converter(value, from_unit, to_unit):
+def energy_converter(value, from_unit, to_unit, units):
     """Конвертер энергии."""
-    units = AllUnits.energy_units
+    # units = AllUnits.energy_units
     value_in_joules = value * units[from_unit]
     return value_in_joules / units[to_unit]
 
 
 # Flow (Volume Flow Rate)
-def flow_converter(value, from_unit, to_unit):
+def flow_converter(value, from_unit, to_unit, units):
     """Конвертер объемного расхода."""
-    units = AllUnits.flow_units
+    # units = AllUnits.flow_units
     value_in_m3s = value * units[from_unit]
     return value_in_m3s / units[to_unit]
 
 # Force
-def force_converter(value, from_unit, to_unit):
+def force_converter(value, from_unit, to_unit, units):
     """Конвертер силы."""
-    units = AllUnits.force_units
+    # units = AllUnits.force_units
     value_in_newtons = value * units[from_unit]
     return value_in_newtons / units[to_unit]
 
 
 # Light (Illuminance)
-def illuminance_converter(value, from_unit, to_unit):
+def illuminance_converter(value, from_unit, to_unit, units):
     """Конвертер освещенности."""
-    units = AllUnits.light_units
+    # units = AllUnits.light_units
     value_in_lux = value * units[from_unit]
     return value_in_lux / units[to_unit]
 
 
 # Mass
-def mass_converter(value, from_unit, to_unit):
+def mass_converter(value, from_unit, to_unit, units):
     """Конвертер массы."""
-    units = AllUnits.mass_units
+    # units = AllUnits.mass_units
     value_in_kg = value * units[from_unit]
     return value_in_kg / units[to_unit]
 
 # Power
-def power_converter(value, from_unit, to_unit):
+def power_converter(value, from_unit, to_unit, units):
     """Конвертер мощности."""
-    units = AllUnits.power_units
+    # units = AllUnits.power_units
     value_in_watts = value * units[from_unit]
     return value_in_watts / units[to_unit]
 
 # Pressure
-def pressure_converter(value, from_unit, to_unit):
+def pressure_converter(value, from_unit, to_unit, units):
     """Конвертер давления (расширенный)."""
-    units = AllUnits.pressure_units
+    # units = AllUnits.pressure_units
     value_in_pascals = value * units[from_unit]
     return value_in_pascals / units[to_unit]
 
-def speed_converter(value, from_unit, to_unit):
+def speed_converter(value, from_unit, to_unit, units):
     """Конвертер скорости (расширенный)."""
-    units = AllUnits.speed_units
+    # units = AllUnits.speed_units
     value_in_ms = value * units[from_unit]
     return value_in_ms / units[to_unit]
 
@@ -109,74 +112,74 @@ def temperature_converter(value, from_unit, to_unit):
 
 
 # Time
-def time_converter(value, from_unit, to_unit):
+def time_converter(value, from_unit, to_unit, units):
     """Конвертер времени."""
-    units = AllUnits.time_units
+    # units = AllUnits.time_units
     # Конвертация
     value_in_seconds = value * units[from_unit]
     return value_in_seconds / units[to_unit]
 
 # Torque
-def torque_converter(value, from_unit, to_unit):
+def torque_converter(value, from_unit, to_unit, units):
     """Конвертер крутящего момента."""
-    units = AllUnits.torque_units
+    # units = AllUnits.torque_units
     value_in_Nm = value * units[from_unit]
     return value_in_Nm / units[to_unit]
 
 # Volume
-def volume_converter(value, from_unit, to_unit):
+def volume_converter(value, from_unit, to_unit, units):
     """Конвертер объема."""
-    units = AllUnits.volume_units
+    # units = AllUnits.volume_units
     value_in_m3 = value * units[from_unit]
     return value_in_m3 / units[to_unit]
 
 # Volume - Dry (US)
-def dry_volume_converter(value, from_unit, to_unit):
+def dry_volume_converter(value, from_unit, to_unit, units):
     """Конвертер сухого объема (US)."""
-    units = AllUnits.dry_volume_units
+    # units = AllUnits.dry_volume_units
 
     value_in_bushels = value * units[from_unit]
     return value_in_bushels / units[to_unit]
 
 # Acceleration
-def acceleration_converter(value, from_unit, to_unit):
+def acceleration_converter(value, from_unit, to_unit, units):
     """Конвертер ускорения."""
-    units = AllUnits.acceleration_units
+    # units = AllUnits.acceleration_units
     value_in_ms2 = value * units[from_unit]
     return value_in_ms2 / units[to_unit]
 
 # Amt. of Substance (Amount of Substance)
-def amount_converter(value, from_unit, to_unit):
+def amount_converter(value, from_unit, to_unit, units):
     """Конвертер количества вещества."""
-    units = AllUnits.amount_unit
+    # units = AllUnits.amount_unit
     value_in_mol = value * units[from_unit]
     return value_in_mol / units[to_unit]
 
 # Angle
-def angle_converter(value, from_unit, to_unit):
+def angle_converter(value, from_unit, to_unit, units):
     """Конвертер углов."""
-    units = AllUnits.angle_unit
+    # units = AllUnits.angle_unit
     value_in_radians = value * units[from_unit]
     return value_in_radians / units[to_unit]
 
 # Area
-def area_converter(value, from_unit, to_unit):
+def area_converter(value, from_unit, to_unit, units):
     """Конвертер площади."""
-    units = AllUnits.area_unit
+    # units = AllUnits.area_unit
     value_in_m2 = value * units[from_unit]
     return value_in_m2 / units[to_unit]
 
 # Computer (Data Storage)
-def data_converter(value, from_unit, to_unit):
+def data_converter(value, from_unit, to_unit, units):
     """Конвертер объема данных."""
-    units = AllUnits.comuter_unit
+    # units = AllUnits.comuter_unit
     value_in_bytes = value * units[from_unit]
     return value_in_bytes / units[to_unit]
 
 # Concentration (Mass Concentration)
-def concentration_converter(value, from_unit, to_unit):
+def concentration_converter(value, from_unit, to_unit, units):
   """Конвертер концентрации (молярной)."""
-  units = AllUnits.concentration_units
+  # units = AllUnits.concentration_units
   value_in_kmolm3 = value * units[from_unit]
   return value_in_kmolm3 / units[to_unit]
 
@@ -186,6 +189,8 @@ def test_converter(units, type, function):
 
     value = float(input("Введите значение: "))
     from_unit = input("Введите исходную единицу измерения: ")
+
+    print(f"ALL UNITS: {units}")
 
     if from_unit not in units:  # Проверяем, есть ли такая единица
         print("Ошибка: Недопустимая исходная единица измерения.")
@@ -280,7 +285,14 @@ def excel_creater(value, from_unit, to_units, type, conversion_function):
 
     # Сохраняем файл
     filename = f"conversion_results_{type}.xlsx"
-    wb.save(filename)
+    # Проверка существования папки
+    if not os.path.exists("Conversions"):
+        # Создание папки, если она не существует
+        os.makedirs("Conversions")
+        print(f"Папка Conversions создана.")
+    else:
+        print(f"Папка Conversions уже существует.")
+    wb.save(f"Conversions\\{filename}")
     print(f"Файл '{filename}' успешно создан.")
 
 
@@ -293,5 +305,5 @@ def excel_creater(value, from_unit, to_units, type, conversion_function):
 
 if __name__ == "__main__":
     AllUnits = main()
-    unit = AllUnits.speed_units
-    test_converter(unit, "speed1", speed_converter)
+    unit = AllUnits.pressure_units
+    test_converter(unit, "pressure1", pressure_converter)

@@ -3,45 +3,26 @@
 import psycopg2
 
 class AllUnits:
-    pressure_units = {
-    }
-
-    speed_units = {
-    }
-
-    concentration_units = {
-    }
-
-    density_units = {
-    }
-
-    distance_units = {
-    }
-    energy_units = {
-    }
-
-    flow_units = {
-    }
-
-    force_units = {
-    }
-
-    light_units = {
-    }
-
-    mass_units = {
-    }
-    power_units = {
-    }
-    time_units = {}
-    torque_units = {}
-    volume_units = {}
-    dry_volume_units = {}
-    acceleration_units = {}
-    amount_unit = {}
-    angle_unit = {}
-    area_unit = {}
-    comuter_unit = {}
+        pressure_units = {}
+        speed_units = {}
+        concentration_units = {}
+        density_units = {}
+        distance_units = {}
+        energy_units = {}
+        flow_units = {}
+        force_units = {}
+        light_units = {}
+        mass_units = {}
+        power_units = {}
+        time_units = {}
+        torque_units = {}
+        volume_units = {}
+        dry_volume_units = {}
+        acceleration_units = {}
+        amount_unit = {}
+        angle_unit = {}
+        area_unit = {}
+        comuter_unit = {}
 
 # Функция для загрузки данных из таблицы в словарь
 def load_data_from_table(table_name, cur):
