@@ -87,28 +87,12 @@ def speed_converter(value, from_unit, to_unit, units):
     return value_in_ms / units[to_unit]
 
 # Temperature
-def temperature_converter(value, from_unit, to_unit):
+def temperature_converter(value, from_unit, to_unit, units):
     """Конвертер температуры."""
-    units = {
-        "C": lambda x: x,
-        "F": lambda x: (x - 32) * 5 / 9,
-        "K": lambda x: x - 273.15,
-        "R": lambda x: (x - 491.67) * 5 / 9,
-    }
-
-    if from_unit not in units or to_unit not in units:
+    if from_unit not in units.keys() or to_unit not in units.keys():
         raise ValueError("Неизвестная единица измерения температуры.")
-
-    celsius = units[from_unit](value)
-
-    conversions = {
-        "C": lambda x: x,
-        "F": lambda x: (x * 9 / 5) + 32,
-        "K": lambda x: x + 273.15,
-        "R": lambda x: (x + 273.15) * 9 / 5,
-    }
-
-    return conversions[to_unit](celsius)
+    celsius = units[from_unit][0](value)
+    return units[to_unit][1](celsius)
 
 
 # Time
@@ -172,7 +156,7 @@ def area_converter(value, from_unit, to_unit, units):
 # Computer (Data Storage)
 def data_converter(value, from_unit, to_unit, units):
     """Конвертер объема данных."""
-    # units = AllUnits.comuter_unit
+    # units = AllUnits.computer_units
     value_in_bytes = value * units[from_unit]
     return value_in_bytes / units[to_unit]
 
@@ -183,6 +167,42 @@ def concentration_converter(value, from_unit, to_unit, units):
   value_in_kmolm3 = value * units[from_unit]
   return value_in_kmolm3 / units[to_unit]
 
+# Custom
+def custom_converter(value, from_unit, to_unit, custom_units):
+    """
+    Конвертирует значение из одной пользовательской единицы в другую.
+
+    :param value: Значение для конвертации.
+    :param from_unit: Исходная единица измерения.
+    :param to_unit: Целевая единица измерения.
+    :param custom_units: Словарь с пользовательскими единицами.
+    :return: Результат конвертации.
+    """
+    try:
+        # Получаем данные для исходной единицы
+        from_unit_data = custom_units.get(from_unit)
+        if not from_unit_data:
+            raise ValueError(f'Исходная единица "{from_unit}" не найдена.')
+
+        # Получаем данные для целевой единицы
+        to_unit_data = custom_units.get(to_unit)
+        if not to_unit_data:
+            raise ValueError(f'Целевая единица "{to_unit}" не найдена.')
+
+        # Проверяем, что обе единицы используют одну и ту же базовую единицу
+        if from_unit_data['base_unit'] != to_unit_data['base_unit']:
+            raise ValueError('Единицы измерения должны использовать одну и ту же базовую единицу.')
+
+        # Конвертируем значение в базовую единицу
+        value_in_base = value * from_unit_data['value']
+
+        # Конвертируем значение из базовой единицы в целевую
+        result = value_in_base / to_unit_data['value']
+
+        return result
+
+    except Exception as e:
+        raise ValueError(f'Ошибка при конвертации: {str(e)}')
 
 def test_converter(units, type, function):
     """Тестирует pressure_converter, преобразуя во все единицы измерения."""

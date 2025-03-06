@@ -5,13 +5,22 @@ from AllUnits import AllUnits
 
 # Функция для создания таблиц
 def create_tables(table_name):
-    cur.execute(f"""
+    if table_name == "temperature_units":
+        cur.execute(f"""
         CREATE TABLE IF NOT EXISTS public.{table_name} (
             id SERIAL PRIMARY KEY,
             key TEXT NOT NULL,
-            value FLOAT NOT NULL
+            value JSONB NOT NULL
         )
     """)
+    else:
+        cur.execute(f"""
+            CREATE TABLE IF NOT EXISTS public.{table_name} (
+                id SERIAL PRIMARY KEY,
+                key TEXT NOT NULL,
+                value FLOAT NOT NULL
+            )
+        """)
     conn.commit()
     print(f"Table '{table_name}' created successfully.")
 

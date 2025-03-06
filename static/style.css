@@ -1,0 +1,153 @@
+/* Основные стили */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /*max-width: 800px;*/
+    width: 100%;
+    margin: 1rem;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Стили для формы */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    /*gap: 1rem;*/
+    margin-bottom: 1.5rem;
+}
+
+.col-md-3, .col-md-4 {
+    flex: 1;
+    min-width: 200px;
+}
+
+select, input[type="number"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/*select:focus, input[type="number"]:focus {
+    border-color: #6c5ce7;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+}*/
+
+button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5a4ad1;
+}
+
+/* Стили для результата */
+#result {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    text-align: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    color: #2c3e50;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#result.alert-success {
+    background-color: #e8f5e9;
+    border-color: #4caf50;
+    color: #2e7d32;
+}
+
+#result.alert-danger {
+    background-color: #ffebee;
+    border-color: #ef5350;
+    color: #c62828;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    select, input[type="number"], button {
+        font-size: 0.9rem;
+    }
+
+    #result {
+        font-size: 1rem;
+    }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeIn 0.5s ease;
+}
+
+.col-md-3 select.form-select,
+.col-md-3 input.form-control {
+    width: 100%;
+    box-sizing: border-box; /* Учитываем padding и border в ширине */
+    padding: 0.75rem; /* Унифицируем отступы */
+    font-size: 1.1rem; /* Унифицируем размер шрифта */
+    border: 1px solid #ddd; /* Унифицируем границу */
+    border-radius: 8px; /* Унифицируем скругление углов */
+    background-color: #f9f9f9; /* Унифицируем фон */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Унифицируем анимацию */
+}
+
+#addButton {
+    font-size: 1.1rem;
+    display: none;
+}
+
